@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E00D6697-87A4-4A54-8D78-7F60EE0EE711}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D2B2C959-D51E-4CEE-9068-2A48EF8E47B4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <RootNamespace>Presentation</RootNamespace>
+    <AssemblyName>Presentation</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -30,12 +30,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,35 +48,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileOperators\Loader.cs" />
-    <Compile Include="IPerformer.cs" />
-    <Compile Include="Performers\Assigner.cs" />
-    <Compile Include="Performers\Cloner.cs" />
-    <Compile Include="Performers\Divider.cs" />
-    <Compile Include="Performers\Factorial.cs" />
-    <Compile Include="Performers\Logarithm.cs" />
-    <Compile Include="Performers\Mean.cs" />
-    <Compile Include="Performers\Minus.cs" />
-    <Compile Include="Performers\Multiply.cs" />
-    <Compile Include="Performers\Plus.cs" />
-    <Compile Include="Performers\Power.cs" />
-    <Compile Include="Performers\Repeater.cs" />
-    <Compile Include="Performers\Reseter.cs" />
-    <Compile Include="Performers\Root.cs" />
-    <Compile Include="Performers\Sqrt.cs" />
-    <Compile Include="Performers\Square.cs" />
-    <Compile Include="Performers\StdDev.cs" />
-    <Compile Include="Performers\Undoer.cs" />
-    <Compile Include="FileOperators\Saver.cs" />
-    <Compile Include="HistoryData.cs" />
-    <Compile Include="IFileOperator.cs" />
-    <Compile Include="IModel.cs" />
-    <Compile Include="IPresenter.cs" />
-    <Compile Include="Model.cs" />
+    <Compile Include="Presenter.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Demo\View.csproj">
+      <Project>{e7093307-26eb-4ac8-a6de-7c1dcd035c4a}</Project>
+      <Name>View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{e00d6697-87a4-4a54-8d78-7f60ee0ee711}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
